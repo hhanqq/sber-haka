@@ -160,27 +160,49 @@ def build_survey_insight(payload: SurveyCreate) -> dict:
     }
 
 
+def normalize_benchmark_record(record: dict) -> dict:
+    normalized = dict(record)
+    breakdown = dict(normalized.get("score_breakdown") or {})
+
+    for criterion in BENCHMARK_CRITERIA:
+        key = criterion["key"]
+        value = breakdown.get(key)
+        if isinstance(value, (int, float)):
+            breakdown[key] = int(value)
+        else:
+            breakdown[key] = int(normalized.get("total_score", 0))
+
+    normalized["score_breakdown"] = breakdown
+    normalized["strengths"] = list(normalized.get("strengths") or [])
+    normalized["gaps"] = list(normalized.get("gaps") or [])
+    normalized["summary"] = normalized.get("summary") or "Краткое описание отсутствует."
+    normalized["page_type"] = normalized.get("page_type") or "страница для пенсионеров"
+    return normalized
+
+
 def get_benchmark_records(db: Session) -> list[dict]:
     stored = db.scalars(select(BenchmarkResult).order_by(BenchmarkResult.total_score.desc())).all()
     if stored:
         return [
-            {
-                "id": item.id,
-                "source_name": item.source_name,
-                "source_url": item.source_url,
-                "page_type": item.page_type,
-                "model_name": item.model_name,
-                "total_score": item.total_score,
-                "score_breakdown": item.score_breakdown,
-                "strengths": item.strengths,
-                "gaps": item.gaps,
-                "summary": item.summary,
-                "evidence_excerpt": item.evidence_excerpt,
-                "created_at": item.created_at.isoformat(),
-            }
+            normalize_benchmark_record(
+                {
+                    "id": item.id,
+                    "source_name": item.source_name,
+                    "source_url": item.source_url,
+                    "page_type": item.page_type,
+                    "model_name": item.model_name,
+                    "total_score": item.total_score,
+                    "score_breakdown": item.score_breakdown,
+                    "strengths": item.strengths,
+                    "gaps": item.gaps,
+                    "summary": item.summary,
+                    "evidence_excerpt": item.evidence_excerpt,
+                    "created_at": item.created_at.isoformat(),
+                }
+            )
             for item in stored
         ]
-    return BENCHMARK_DEMO_RESULTS
+    return [normalize_benchmark_record(item) for item in BENCHMARK_DEMO_RESULTS]
 
 
 @app.get("/api/health")
