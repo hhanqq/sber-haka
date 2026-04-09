@@ -33,5 +33,12 @@ services:
     ports:
       - "3000:4173"
 
+  team-landing:
+    build:
+      context: ./team-landing
+    container_name: sber-team-landing
+    ports:
+      - "3001:4174"
+
 volumes:
   postgres-data:

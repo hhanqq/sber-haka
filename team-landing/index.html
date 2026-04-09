@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Команда проекта | Сбер-стиль</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__content">
+          <span class="badge">Команда проекта</span>
+          <h1>10 человек, один ритм и одна сильная подача для презентации по QR.</h1>
+          <p class="hero__lead">
+            Это отдельный лендинг на своем порту: его можно поднять независимо от основного фронта и показать с
+            телефона или большого экрана без лишней навигации.
+          </p>
+          <p class="hero__text">
+            Страница собрана в стиле Сбера: чистая структура, акцентный зеленый, крупная типографика и карточки
+            участников с фото, ролями и Telegram.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#members">Открыть команду</a>
+            <a class="button button--ghost" href="#about">Как мы работаем</a>
+          </div>
+
+          <div class="stats" id="stats"></div>
+        </div>
+
+        <aside class="hero__panel">
+          <span class="panel__label">Независимый запуск</span>
+          <h2>Поднимается как отдельный сервис на отдельном порту.</h2>
+          <div class="panel__items" id="highlights"></div>
+        </aside>
+      </header>
+
+      <main class="content">
+        <section class="section" id="about">
+          <div class="section__heading">
+            <span class="kicker">О нас</span>
+            <h2>Мы показываем не список имен, а живую команду с понятными ролями.</h2>
+            <p>
+              На защите это помогает быстро объяснить, кто за что отвечает, и создает ощущение сильной, собранной и
+              реальной команды.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="feature-card">
+              <span class="feature-card__eyebrow">Подход</span>
+              <h3>Один лендинг, который сразу усиливает презентацию проекта.</h3>
+              <p>
+                Вместо формального списка участников здесь собраны роли, контакты, вклад каждого человека и общее
+                впечатление от команды как от одного цельного продукта.
+              </p>
+              <div class="chip-row" id="stack"></div>
+            </div>
+
+            <div class="value-grid" id="values"></div>
+          </div>
+        </section>
+
+        <section class="section section--contrast" id="members">
+          <div class="section__heading">
+            <span class="kicker">Состав команды</span>
+            <h2>Карточки легко обновить под реальные фото, имена, роли и Telegram.</h2>
+            <p>
+              Все данные лежат в одном файле. Если перед защитой что-то меняется, правки займут буквально несколько
+              минут.
+            </p>
+          </div>
+
+          <div class="member-grid" id="member-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
