@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Сбер",
+    "url": "https://www.sberbank.com/ru/person/senior",
+    "page_type": "страница для пенсионеров"
+  },
+  {
+    "name": "ВТБ",
+    "url": "https://www.vtb.ru/personal/karty/pensionnye/",
+    "page_type": "страница для пенсионеров"
+  },
+  {
+    "name": "Почта Банк",
+    "url": "https://www.pochtabank.ru/service/debetcards/pension",
+    "page_type": "страница для пенсионеров"
+  },
+  {
+    "name": "Россельхозбанк",
+    "url": "https://www.rshb.ru/natural/cards/pension",
+    "page_type": "страница для пенсионеров"
+  },
+  {
+    "name": "Альфа-Банк",
+    "url": "https://alfabank.ru/everyday/debit-cards/pension/",
+    "page_type": "страница для пенсионеров"
+  }
+]

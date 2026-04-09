@@ -1,0 +1,73 @@
+{
+  "source": "export_ml_snapshot.py",
+  "sample_size": 5000,
+  "generated_at": "2026-04-09",
+  "segments": [
+    {
+      "name": "Адаптивный новичок",
+      "share_percent": 44.6,
+      "barriers": [
+        "fear_digital=3.7",
+        "trust_branch=6.8",
+        "need_human=5.5",
+        "digital_literacy=6.2"
+      ]
+    },
+    {
+      "name": "Цифровой пессимист",
+      "share_percent": 55.4,
+      "barriers": [
+        "fear_digital=7.2",
+        "trust_branch=6.6",
+        "need_human=5.7",
+        "digital_literacy=2.9"
+      ]
+    }
+  ],
+  "top_factors": [
+    {
+      "feature": "fear_digital",
+      "importance": 0.2016,
+      "insight": "Фактор fear_digital входит в топ драйверов решения о переводе пенсии."
+    },
+    {
+      "feature": "trust_branch",
+      "importance": 0.1981,
+      "insight": "Фактор trust_branch входит в топ драйверов решения о переводе пенсии."
+    },
+    {
+      "feature": "digital_literacy",
+      "importance": 0.1753,
+      "insight": "Фактор digital_literacy входит в топ драйверов решения о переводе пенсии."
+    },
+    {
+      "feature": "need_human",
+      "importance": 0.1559,
+      "insight": "Фактор need_human входит в топ драйверов решения о переводе пенсии."
+    },
+    {
+      "feature": "bank_loyalty",
+      "importance": 0.1456,
+      "insight": "Фактор bank_loyalty входит в топ драйверов решения о переводе пенсии."
+    }
+  ],
+  "scenario_effects": [
+    {
+      "name": "Обучение (снижение страха на 40%)",
+      "delta_pp": 2.3
+    },
+    {
+      "name": "Клуб по интересам (меньше нужен человек)",
+      "delta_pp": 0.0
+    },
+    {
+      "name": "Комбо (обучение + клуб)",
+      "delta_pp": 2.6
+    }
+  ],
+  "recommendations": [
+    "Запустить обучение и клубы по интересам как связанный сервисный пакет.",
+    "Поднимать awareness_easy_transfer через простые объяснения и сопровождение.",
+    "Для проблемных сегментов сохранять офлайн-опору и кураторский маршрут."
+  ]
+}

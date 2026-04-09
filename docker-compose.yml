@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: sber-case-db
+    environment:
+      POSTGRES_DB: sber_case
+      POSTGRES_USER: sber
+      POSTGRES_PASSWORD: sber
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    container_name: sber-case-backend
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql+psycopg://sber:sber@db:5432/sber_case
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: sber-case-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:4173"
+
+volumes:
+  postgres-data:
